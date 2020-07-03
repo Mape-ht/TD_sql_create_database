@@ -42,7 +42,7 @@ CREATE TABLE statut(
     -> FOREIGN KEY(employe_id) REFERENCES employe(id));
 
 CREATE TABLE agence(
-    -> id INT,
+    -> id INT AUTO_INCREMENT,
     -> nom VARCHAR(55),
     -> region VARCHAR(55),
     -> PRIMARY KEY(id));
@@ -117,6 +117,7 @@ CREATE TABLE compte_client(
     -> etat VARCHAR(10),
     -> cltphy_id INT,
     -> cltmoral_id INT,
+    -> type_compte_id INT,
     -> datecrea VARCHAR(14),
     -> dateferme VARCHAR(14),
     -> datefertempo VARCHAR(14),
@@ -124,7 +125,8 @@ CREATE TABLE compte_client(
     -> PRIMARY KEY(id),
     -> FOREIGN KEY(agence_id) REFERENCES agence(id),
     -> FOREIGN KEY(cltphy_id) REFERENCES client_physique(id),
-    -> FOREIGN KEY(cltmoral_id) REFERENCES client_moral(id));
+    -> FOREIGN KEY(cltmoral_id) REFERENCES client_moral(id)),
+    -> FOREIGN KEY(type_compte_id) REFERENCES type_compte(id));
 
 CREATE TABLE Frais_bancaire(
     -> id INT AUTO_INCREMENT,
